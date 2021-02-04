@@ -7,6 +7,57 @@
 .content {
     background-image: url(../images/bg-pattern-desktop.svg);
     background-size: cover;
+    padding: 5vh 20vw 5vh 10vw;
+
+    &__logo {
+        margin-bottom: 15vh;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-size: 3.5rem;
+        letter-spacing: 0.875rem;
+        font-weight: $fontThin;
+        line-height: 1.2em;
+        margin: 0px;
+    }
+
+    &__text {
+        font-weight: $fontMed;
+        line-height: 1.6em;
+    }
+
+    > form > input[type=email] {
+        border: solid 1px $redDesaturated;
+        width: 100%;
+        background: none;
+        padding: 20px;
+        border-radius: 30px;
+        height: 55px;
+        color: $redDesaturated;
+    }
+    form > input[type=email]::placeholder {
+        color: $redDesaturated;
+    }
+
+    form > input:focus {
+        outline: none;
+    }
+
+    &__button {
+        position: relative;
+        border: none;
+        border-radius: 30px;
+        width: 100px;
+        height: 55px;
+        background: $gradient2;
+        top: -55px;
+        float: right;
+    }
+
+    &__button__icon {
+        background-image: url(../images/icon-arrow.svg);
+    }
 }
 
 .image {
@@ -22,6 +73,8 @@
     font-size: 11px;
     text-align: center;
     margin: 0px;
+    position: absolute;
+    bottom: 0px;
 }
 .attribution a { 
     color: hsl(228, 45%, 44%); 
