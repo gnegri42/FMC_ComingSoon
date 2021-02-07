@@ -1,18 +1,24 @@
 .main {
-    display: grid;
-    grid-template-columns: 60% 40%;
-    height: 100vh;
+    @media (min-width: $desktop) {
+        display: grid;
+        grid-template-columns: 60vw 40vw;
+        height: 100vh;
+    }
+    @media (max-width: $mobile){
+        // width: 100vw;
+    }
+}
+
+.mobile-logo {
+    @media (min-width: $desktop) {
+        display: none;
+    }
+    @media (max-width: $mobile){
+        padding: 30px 40px;
+    }
 }
 
 .content {
-    background-image: url(../images/bg-pattern-desktop.svg);
-    background-size: cover;
-    padding: 5vh 20vw 5vh 10vw;
-
-    &__logo {
-        margin-bottom: 15vh;
-    }
-
     &__title {
         text-transform: uppercase;
         font-size: 3.5rem;
@@ -27,20 +33,33 @@
         line-height: 1.6em;
     }
 
-    > form > input[type=email] {
+    &__form {
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__input {
         border: solid 1px $redDesaturated;
         width: 100%;
         background: none;
         padding: 20px;
         border-radius: 30px;
         height: 55px;
-        color: $redDesaturated;
     }
-    form > input[type=email]::placeholder {
+
+    &__input:valid {
+        background-color: none;
+    }
+
+    // &__input:invalid {
+    //     border-color: $redSoft;
+    // }
+
+    &__input::placeholder {
         color: $redDesaturated;
     }
 
-    form > input:focus {
+    &__input:focus {
         outline: none;
     }
 
@@ -53,29 +72,137 @@
         background: $gradient2;
         top: -55px;
         float: right;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-self: end;
+    }
+
+    &__button:hover {
+        background: linear-gradient(135deg, hsl(0, 71%, 89%), hsla(0, 74%, 74%, 0.685));;
+        cursor: pointer;
+        box-shadow: 5px 10px 20px $redDesaturated;
     }
 
     &__button__icon {
         background-image: url(../images/icon-arrow.svg);
     }
+
+    &__error {
+        color: $redSoft;
+        font-size: 0.75rem;
+        font-weight: $fontMed;
+        margin-left: 30px;
+    }
+
+    &__error__img {
+        position: relative;
+        top: -40px;
+        float: right;
+        margin-right: 10px;
+    }
 }
 
-.image {
-    margin: 0px;
-	padding: 0px;
-    background-image: url(../images/hero-desktop.jpg);
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;
+@media (min-width: $desktop) {
+    .content {
+        // BACKGROUND
+        background-image: url(../images/bg-pattern-desktop.svg);
+        background-size: cover;
+        padding: 5vh 20vw 5vh 10vw;
+
+        // CONTENT
+        &__logo {
+            margin-bottom: 15vh;
+        }
+    }
+}
+@media (max-width: $mobile){
+    .content {
+        background: $gradientWhitePink;
+        padding: 40px 30px;
+        text-align: center;
+
+        &__logo {
+            display: none;
+        }
+
+        &__title {
+            letter-spacing: 0.6rem;
+            font-size: 2rem;
+        }
+    
+        &__text {
+            font-weight: $fontMed;
+            line-height: 1.6em;
+        }
+
+        &__input {
+            height: 44px;
+        }
+
+        &__button {
+            height: 44px;
+            width: 65px;
+            top: -44px;
+        }
+    }
 }
 
-.attribution { 
-    font-size: 11px;
-    text-align: center;
-    margin: 0px;
-    position: absolute;
-    bottom: 0px;
+.error {
+    display: none;
 }
-.attribution a { 
-    color: hsl(228, 45%, 44%); 
+
+.desktop-image {
+    @media (min-width: $desktop) {
+        margin: 0px;
+        padding: 0px;
+        background-image: url(../images/hero-desktop.jpg);
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    @media (max-width: $mobile){
+        display: none;
+    }
+}
+
+.mobile-image {
+    @media (min-width: $desktop) {
+        display: none;
+    }
+    @media (max-width: $mobile){
+        width: 100%;
+    }
+}
+
+@media (min-width: $desktop) {
+    .attribution-desktop { 
+        font-size: 11px;
+        text-align: center;
+        margin: 0px;
+        position: absolute;
+        bottom: 0px;
+    }
+    .attribution-desktop a { 
+        color: hsl(228, 45%, 44%); 
+    }
+
+    .attribution-mobile {
+        display: none;
+    }
+}
+
+@media (max-width: $mobile){
+    .attribution-desktop { 
+        display: none;
+    }
+
+    .attribution-mobile {
+        font-size: 11px;
+        text-align: center;
+        margin: 0px;
+    }
+    .attribution-mobile a { 
+        color: hsl(228, 45%, 44%); 
+    }
 }

@@ -15,8 +15,10 @@
   <!-- Nav visible only on mobiles -->
   <div class="nav"></div>
     <div class="main">
+    <img class="mobile-logo" alt="logo" src="./images/logo.svg" />
+    <img class="mobile-image" src="./images/hero-mobile.jpg" />
     <div class="content">
-      <img class="content__logo" src="./images/logo.svg" />
+      <img class="content__logo" src="./images/logo.svg" alt="logo"/>
       <h1 class="content__title">We're<br/> <strong>coming<br /> soon</strong></h1>
 
       <p class="content__text">
@@ -24,18 +26,30 @@
         Add your email below to stay up-to-date with announcements and our launch deals.
       </p>
 
-      <form action="">
-        <input class="context__input" type="email" name="email" placeholder="Email Adress" value="" />
-        <button type="submit" class="content__button"><img class="content__button__icon" src="./images/icon-arrow.svg" /></i></button>
+      <form action="" method="POST">
+        <div class="content__form">
+          <input class="content__input" type="email" name="email" placeholder="Email Adress" value="" id="email-input"/>
+          <span type="submit" class="content__button" >
+            <img class="content__button__icon" src="./images/icon-arrow.svg" />
+          </span>
+          <img class="content__error__img error" src="./images/icon-error.svg" />
+        </div>
       </form>
-      <p class="attribution">
+      
+      <p class="content__error" id="email-error"></p>
+      <p class="attribution-desktop">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="https://github.com/gnegri42">Geoffrey Négri</a>.
+        Coded by <a href="https://github.com/gnegri42">Geoffrey Négri</a>.
       </p>
     </div>
-    <div class="image"></div>
+    <div class="desktop-image"></div>
   </div>
-  <footer>  
+  <footer>
+    <p class="attribution-mobile">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://github.com/gnegri42">Geoffrey Négri</a>.
+    </p>
   </footer>
+  <script src="./js/script.js"></script>
 </body>
 </html>
